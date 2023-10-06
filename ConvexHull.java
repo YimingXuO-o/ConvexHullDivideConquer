@@ -1,4 +1,3 @@
-package edu.gwu.convexHull;
 import java.util.*;
 
 
