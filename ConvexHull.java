@@ -37,7 +37,6 @@ public class ConvexHull {
      * @return a merged convex hull of the left convex hull and the right convex hull
      */
     private static List<int[]> mergeConvexHull(List<int[]> leftConvexHull, List<int[]> rightConvexHull){
-        // merge left convex hull and right convex hull
         int leftConvexHullSize = leftConvexHull.size();
         int rightConvexHullSize = rightConvexHull.size();
         // find the most right point's index of the left convex hull
@@ -136,7 +135,6 @@ public class ConvexHull {
      * @param convexHullVertices This is the List of vertices of convex hull
      */
     private static void sortConvexHullVertices(List<int[]> convexHullVertices){
-        // Sorting Based on the Relative Positions of Convex Hull Vertices to the Centroid
         double[] centroid = {0, 0};
         int convexHullVerticesSize = convexHullVertices.size();
         for(int i = 0; i < convexHullVerticesSize; i++){
@@ -157,7 +155,6 @@ public class ConvexHull {
     private static List<int[]> convexHullDivideConquerRecursion(int[][] points) {
         if(points.length <= 1)
             return new ArrayList<>(Arrays.asList(points));
-        // convex hull finding using D&C
         if (points.length == 2)
             // points are reversed because of the implementation of merging
             return new ArrayList<>(Arrays.asList(points[1], points[0]));
@@ -167,6 +164,7 @@ public class ConvexHull {
                 // points are reversed because of the implementation of merging
                 return new ArrayList<>(Arrays.asList(points[2], points[1], points[0]));
             // points are reversed because of the implementation of merging
+            // collinear case
             return new ArrayList<>(Arrays.asList(points[2], points[0]));
         }
         int[][] pointsLeftPart = Arrays.copyOfRange(points, 0, points.length/2);
